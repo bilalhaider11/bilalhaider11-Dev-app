@@ -16,6 +16,7 @@ const user_schema_1 = require("../schemas/user.schema");
 const post_schema_1 = require("../schemas/post.schema");
 const posts_controller_1 = require("./posts.controller");
 const posts_service_1 = require("./posts.service");
+const config = require("config");
 let PostsModule = class PostsModule {
 };
 PostsModule = __decorate([
@@ -27,9 +28,9 @@ PostsModule = __decorate([
             mongoose_1.MongooseModule.forFeature([{ name: 'Comment', schema: post_schema_1.PostSchema }]),
             passport_1.PassportModule.register({ defaultStrategy: 'jwt' }),
             jwt_1.JwtModule.register({
-                secret: 'somesupersecret',
+                secret: config.secret,
                 signOptions: {
-                    expiresIn: 36000,
+                    expiresIn: config.expiresIn,
                 },
             }),
         ],

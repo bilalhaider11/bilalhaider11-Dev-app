@@ -13,13 +13,14 @@ const users_module_1 = require("./users/users.module");
 const posts_module_1 = require("./posts/posts.module");
 const auth_module_1 = require("./auth/auth.module");
 const profile_module_1 = require("./profile/profile.module");
+const config = require("config");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
         imports: [
             users_module_1.UsersModule,
-            mongoose_1.MongooseModule.forRoot('mongodb+srv://bilal:bilal123@devcluster.vtac9.mongodb.net/Developer?retryWrites=true&w=majority', {
+            mongoose_1.MongooseModule.forRoot(config.database, {
                 useFindAndModify: false
             }),
             posts_module_1.PostsModule,

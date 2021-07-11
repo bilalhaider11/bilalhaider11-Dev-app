@@ -14,7 +14,7 @@ import { JwtStrategy } from './jwt.strategy';
     JwtModule.register({
       secret: 'somesupersecret',
       signOptions: {
-        expiresIn: 36000,
+        expiresIn: 3600,
       },
     }),
   ],

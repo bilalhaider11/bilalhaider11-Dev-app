@@ -17,6 +17,7 @@ const profile_schema_1 = require("../schemas/profile.schema");
 const user_schema_1 = require("../schemas/user.schema");
 const profile_controller_1 = require("./profile.controller");
 const profile_service_1 = require("./profile.service");
+const config = require("config");
 let ProfileModule = class ProfileModule {
 };
 ProfileModule = __decorate([
@@ -27,9 +28,9 @@ ProfileModule = __decorate([
             mongoose_1.MongooseModule.forFeature([{ name: 'Post', schema: post_schema_1.PostSchema }]),
             passport_1.PassportModule.register({ defaultStrategy: 'jwt' }),
             jwt_1.JwtModule.register({
-                secret: 'somesupersecret',
+                secret: config.secret,
                 signOptions: {
-                    expiresIn: 36000,
+                    expiresIn: config.expiresIn,
                 },
             }),
         ],

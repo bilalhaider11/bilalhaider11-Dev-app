@@ -22,7 +22,7 @@ import { ProfileService } from './profile.service';
     JwtModule.register({
       secret: 'somesupersecret',
       signOptions: {
-        expiresIn: 36000,
+        expiresIn: 3600,
       },
     }),
   ],

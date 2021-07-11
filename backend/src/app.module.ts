@@ -9,7 +9,7 @@ import * as config from 'config';
 @Module({
   imports: [
     UsersModule,
-    MongooseModule.forRoot(config.database,{
+    MongooseModule.forRoot('mongodb+srv://bilal:<password>@devcluster.vtac9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{
       useFindAndModify: false
     }),
     PostsModule,

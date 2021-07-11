@@ -15,6 +15,7 @@ const jwt_strategy_1 = require("../auth/jwt.strategy");
 const user_schema_1 = require("../schemas/user.schema");
 const users_controller_1 = require("./users.controller");
 const users_service_1 = require("./users.service");
+const config = require("config");
 let UsersModule = class UsersModule {
 };
 UsersModule = __decorate([
@@ -23,9 +24,9 @@ UsersModule = __decorate([
             mongoose_1.MongooseModule.forFeature([{ name: 'User', schema: user_schema_1.UserSchema }]),
             passport_1.PassportModule.register({ defaultStrategy: 'jwt' }),
             jwt_1.JwtModule.register({
-                secret: 'somesupersecret',
+                secret: config.secret,
                 signOptions: {
-                    expiresIn: 36000,
+                    expiresIn: config.expiresIn,
                 },
             }),
         ],
