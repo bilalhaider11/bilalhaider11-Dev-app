@@ -4,11 +4,12 @@ import { UsersModule } from './users/users.module';
 import { PostsModule } from './posts/posts.module';
 import { AuthModule } from './auth/auth.module';
 import { ProfileModule } from './profile/profile.module';
+import * as config from 'config';
 
 @Module({
   imports: [
     UsersModule,
-    MongooseModule.forRoot('mongodb+srv://bilal:bilal123@devcluster.vtac9.mongodb.net/Developer?retryWrites=true&w=majority',{
+    MongooseModule.forRoot(config.database,{
       useFindAndModify: false
     }),
     PostsModule,
